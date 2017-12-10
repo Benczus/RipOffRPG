@@ -12,8 +12,6 @@ import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-import static org.lwjgl.glfw.GLFW.*;
-
 public class Entity {
 
     private static Model model;
@@ -27,9 +25,9 @@ public class Entity {
         this.transform=transform;
 
         // this.texture= new Texture("test.png");
-        this.texture = new Animation(5, 15, "an");
+        //  this.texture = new Animation(5, 15, "an");
         transform = new Transform();
-        transform.scale = new Vector3f(16, 16, 1);
+
         boundingBox = new AABB(new Vector2f(transform.pos.x, transform.pos.y), new Vector2f(transform.scale.x, transform.scale.y));
     }
 
@@ -62,22 +60,13 @@ public static void deleteAsset(){
     model=null;
 }
 
+    public void move(Vector2f direction) {
+        transform.pos.add(new Vector3f(direction, 0));
+        boundingBox.getCenter().set(transform.pos.x, transform.pos.y);
+    }
+
     public void update(float delta, Window window, Camera camera, World world) {
 
-        if (window.getInput().isKeyDown(GLFW_KEY_A)) {
-            transform.pos.add(new Vector3f(-10 * delta, 0, 0));
-        }
-        if (window.getInput().isKeyDown(GLFW_KEY_D)) {
-            transform.pos.add(new Vector3f(10 * delta, 0, 0));
-        }
-        if (window.getInput().isKeyDown(GLFW_KEY_W)) {
-            transform.pos.add(new Vector3f(0, 10 * delta, 0));
-        }
-        if (window.getInput().isKeyDown(GLFW_KEY_S)) {
-            transform.pos.add(new Vector3f(0, -10 * delta, 0));
-        }
-
-        boundingBox.getCenter().set(transform.pos.x, transform.pos.y);
 
         AABB[] boxes = new AABB[25];
 

@@ -1,12 +1,12 @@
 package com.iit.bin.game;
 
+import com.iit.bin.entity.Entity;
 import com.iit.bin.entity.Player;
+import com.iit.bin.entity.Transform;
 import com.iit.bin.io.Timer;
 import com.iit.bin.io.Window;
 import com.iit.bin.render.Camera;
 import com.iit.bin.render.Shader;
-import com.iit.bin.render.Texture;
-import com.iit.bin.world.Tile;
 import com.iit.bin.world.TileRenderer;
 import com.iit.bin.world.World;
 import org.lwjgl.opengl.GL;
@@ -41,7 +41,7 @@ public class Main {
         glEnable(GL_TEXTURE_2D);
 
         TileRenderer tiles = new TileRenderer();
-
+        Entity.initAsset();
 
 //        float[] vertices = new float[]{
 //                -0.5f, 0.5f, 0, //TOP LEFT 0
@@ -75,11 +75,18 @@ public class Main {
 //
 //        Matrix4f target = new Matrix4f();
        // World world = new World("test_level");
-        World world = new World();
+        World world = new World("test_level");
 
-        Player player = new Player();
+        Player player = new Player(new Transform());
 
-      world.setTile(Tile.test2, 7, 2);
+//        world.setTile(Tile.test2, 5, 0);
+//        world.setTile(Tile.test2, 6, 0);
+//
+//        world.setTile(Tile.test2, 7, 0);
+//
+//        world.setTile(Tile.test2, 7, 1);
+//
+//        world.setTile(Tile.test2, 7, 2);
         double frameCap = 1.0 / 60.0;   //60 frames per second
         double frameTime = 0;
         int frames = 0;
@@ -131,13 +138,14 @@ public class Main {
 //                    }
 //                }
                 world.render(tiles, shader, camera, window);
-                player.render(shader, camera);
+                player.render(shader, camera, world);
                 window.swapBuffers();
                 frames++;
             }
 
 
         }
+        Entity.deleteAsset();
         glfwTerminate();
 
     }

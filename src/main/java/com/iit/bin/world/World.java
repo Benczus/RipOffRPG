@@ -10,7 +10,6 @@ import org.joml.Vector3f;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 
@@ -40,8 +39,10 @@ public class World {
         try {
             System.out.println("levels/"+world+"_tiles.png");
 
-            BufferedImage tileSheet= ImageIO.read(new File("C:\\Munka\\CheapShootemUp-master\\src\\main\\resources\\levels\\"+world+"_tiles.png"));
-     //       BufferedImage entitySheet= ImageIO.read(new File("./levels/"+world+"_entities.png"));
+            // BufferedImage tileSheet= ImageIO.read(new File("C:\\Munka\\CheapShootemUp-master\\src\\main\\resources\\levels\\"+world+"_tiles.png"));
+            BufferedImage tileSheet = ImageIO.read(getClass().getResource("/levels/" + world + "_tiles.png"));
+
+            //       BufferedImage entitySheet= ImageIO.read(new File("./levels/"+world+"_entities.png"));
             scale=16;
 
             width=tileSheet.getWidth();

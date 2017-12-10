@@ -4,7 +4,6 @@ import org.lwjgl.BufferUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -21,8 +20,8 @@ public class Texture {
     public Texture(String filename) {
         BufferedImage bufferedImage;
         try {
-            System.out.println("textures\\" + filename);
-            bufferedImage = ImageIO.read(new File("C:\\Munka\\RipoffRPG\\src\\main\\resources\\textures\\"+filename));  // NEM MŰKÖDIK A RELATÍV ELÉRÉS. MIÉRT???!
+            //    System.out.println("textures/" + filename);
+            bufferedImage = ImageIO.read(getClass().getResource("/textures/" + filename));  // NEM MŰKÖDIK A RELATÍV ELÉRÉS. MIÉRT???!
             width = bufferedImage.getWidth();
             height = bufferedImage.getHeight();
 
