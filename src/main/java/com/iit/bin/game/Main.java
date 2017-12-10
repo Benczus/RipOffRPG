@@ -79,14 +79,7 @@ public class Main {
 
         Player player = new Player();
 
-       // world.setTile(Tile.test2, 5, 0);
-//        world.setTile(Tile.test2, 6, 0);
-//
-//        world.setTile(Tile.test2, 7, 0);
-//
-//        world.setTile(Tile.test2, 7, 1);
-//
-//        world.setTile(Tile.test2, 7, 2);
+      world.setTile(Tile.test2, 7, 2);
         double frameCap = 1.0 / 60.0;   //60 frames per second
         double frameTime = 0;
         int frames = 0;

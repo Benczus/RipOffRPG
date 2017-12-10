@@ -1,11 +1,13 @@
 package com.iit.bin.world;
 
 public class Tile {
-  public static final Tile test_tile = new Tile("grass");
-   public static final Tile test2 = new Tile("star").setSolid();
-    public static Tile tiles[] = new Tile[255];
     public static byte tilenumber = 0
             ;
+    public static Tile tiles[] = new Tile[255];
+  public static final Tile test_tile = new Tile("grass");
+   public static final Tile test2 = new Tile("star").setSolid();
+
+
 
     private byte id;
     private String texture;

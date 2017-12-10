@@ -21,7 +21,7 @@ public class Texture {
     public Texture(String filename) {
         BufferedImage bufferedImage;
         try {
-            System.out.println("" + filename);
+            System.out.println("textures\\" + filename);
             bufferedImage = ImageIO.read(new File("C:\\Munka\\RipoffRPG\\src\\main\\resources\\textures\\"+filename));  // NEM MŰKÖDIK A RELATÍV ELÉRÉS. MIÉRT???!
             width = bufferedImage.getWidth();
             height = bufferedImage.getHeight();
