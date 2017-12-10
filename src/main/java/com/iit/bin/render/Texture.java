@@ -22,7 +22,7 @@ public class Texture {
         BufferedImage bufferedImage;
         try {
             System.out.println("" + filename);
-            bufferedImage = ImageIO.read(new File("C:\\Munka\\CheapShootemUp-master\\src\\main\\resources\\" + filename));  // NEM MŰKÖDIK A RELATÍV ELÉRÉS. MIÉRT???!
+            bufferedImage = ImageIO.read(new File("C:\\Munka\\RipoffRPG\\src\\main\\resources\\textures\\"+filename));  // NEM MŰKÖDIK A RELATÍV ELÉRÉS. MIÉRT???!
             width = bufferedImage.getWidth();
             height = bufferedImage.getHeight();
 

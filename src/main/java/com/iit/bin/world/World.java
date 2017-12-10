@@ -1,10 +1,17 @@
 package com.iit.bin.world;
 
+import com.iit.bin.collision.AABB;
 import com.iit.bin.io.Window;
 import com.iit.bin.render.Camera;
 import com.iit.bin.render.Shader;
 import org.joml.Matrix4f;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class World {
@@ -14,6 +21,7 @@ public class World {
     private int height;
     private int scale;
     private Matrix4f world;
+    private AABB[] boundingBoxes;
 
     public World() {
         width = 64;
@@ -21,16 +29,71 @@ public class World {
         scale = 16;
         tiles = new byte[width * height];
         world = new Matrix4f().setTranslation(new Vector3f(0))
-        //     .scale(scale)
+      .scale(scale)
         ;
+        boundingBoxes = new AABB[width * height];
 
-        world.scale(scale);
 
+    }
+
+    public World(String world){
+        try {
+            System.out.println("levels/"+world+"_tiles.png");
+
+            BufferedImage tileSheet= ImageIO.read(new File("C:\\Munka\\CheapShootemUp-master\\src\\main\\resources\\levels\\"+world+"_tiles.png"));
+     //       BufferedImage entitySheet= ImageIO.read(new File("./levels/"+world+"_entities.png"));
+            scale=16;
+
+            width=tileSheet.getWidth();
+            height= tileSheet.getHeight();
+
+
+            this.world = new Matrix4f().setTranslation(new Vector3f(0))
+                    .scale(scale)
+            ;
+            int [] colorTileSheet =  tileSheet.getRGB(0,0,width, height,null, 0, width);
+
+            tiles= new byte[width*height];
+            boundingBoxes= new AABB[width*height];
+
+            for (int y = 0; y <height ; y++) {
+                for (int x = 0; x <width ; x++) {
+                    int red= (colorTileSheet[x+y*width] >>16) & 0xFF;
+
+                   Tile t;
+                   try {
+                       t = Tile.tiles[red];
+                   }
+                   catch (ArrayIndexOutOfBoundsException e){
+                       t=null;
+                   }
+                   if (t!=null){
+                       setTile(t,x,y);
+                   }
+
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Matrix4f getWorld() {
+        return world;
     }
 
     public Tile getTile(int x, int y) {
         try {
             return Tile.tiles[tiles[x + y * width]];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return null;
+        }
+    }
+
+    public AABB getTileBoundingBox(int x, int y) {
+        try {
+            return boundingBoxes[x + y * width];
         } catch (ArrayIndexOutOfBoundsException e) {
             return null;
         }
@@ -74,8 +137,16 @@ public class World {
 
     public void setTile(Tile tile, int x, int y) {
         tiles[x + y * width] = tile.getId();
+        if (tile.isSolid()){
+            boundingBoxes[x + y * width] = new AABB(new Vector2f(x * 2, -y * 2), new Vector2f(1, 1));
+        }
+
+        else boundingBoxes[x + y * width] = null;
     }
 
 
+    public int getScale() {
+        return scale;
+    }
 }
 

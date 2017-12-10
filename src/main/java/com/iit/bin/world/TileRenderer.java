@@ -10,7 +10,7 @@ import org.joml.Vector3f;
 import java.util.HashMap;
 
 public class TileRenderer {
-    private HashMap<String, Texture> tile_textures;
+    private HashMap<String, Texture> tile_textures= new HashMap<>();
     private Model model;
 
     public TileRenderer() {
@@ -39,10 +39,11 @@ public class TileRenderer {
         model = new Model(vertices, texture, indices);
 
         for (int i = 0; i < Tile.tiles.length; i++) {
+
             if (Tile.tiles[i] != null) {
                 if (!tile_textures.containsKey(Tile.tiles[i].getTexture())) {
                     String tex = Tile.tiles[i].getTexture();
-                    tile_textures.put(tex, new Texture(tex + ".png"));
+                    tile_textures.put(tex, new Texture(tex+".png"));
                 }
             }
         }

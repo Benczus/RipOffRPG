@@ -1,13 +1,14 @@
 package com.iit.bin.game;
 
+import com.iit.bin.entity.Player;
 import com.iit.bin.io.Timer;
 import com.iit.bin.io.Window;
 import com.iit.bin.render.Camera;
 import com.iit.bin.render.Shader;
+import com.iit.bin.render.Texture;
 import com.iit.bin.world.Tile;
 import com.iit.bin.world.TileRenderer;
 import com.iit.bin.world.World;
-import org.joml.Vector3f;
 import org.lwjgl.opengl.GL;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -17,6 +18,13 @@ public class Main {
 
     public static void main(String[] args) {
         Window.setCallbacks();
+
+
+//        AABB box1= new AABB(new Vector2f(0,0), new Vector2f(1,1));
+//        AABB box2= new AABB(new Vector2f(1,0), new Vector2f(1,1));
+//
+//        if(box1.getCollision(box2).isIntersecting)
+//            System.out.println("intersecting");
 
         if (!glfwInit()) {
             throw new RuntimeException("Cannot initialize GLFW!");
@@ -60,17 +68,25 @@ public class Main {
         Shader shader = new Shader("shader");
         // PLACE TO CREATE TEXTURES ( after createCapabilities)
         //
-        //  Texture tex = new Texture("C:\\Munka\\CheapShootemUp-master\\src\\main\\resources\\test.png");
-
+//     Texture tex = new Texture("C:\\Munka\\CheapShootemUp-master\\src\\main\\resources\\test.png");
 //        Matrix4f scale = new Matrix4f()
 //                .translate(new Vector3f(0,0,0))
 //                .scale(16);
 //
 //        Matrix4f target = new Matrix4f();
+       // World world = new World("test_level");
         World world = new World();
 
-        world.setTile(Tile.test2, 0, 0);
-        world.setTile(Tile.test2, 63, 63);
+        Player player = new Player();
+
+       // world.setTile(Tile.test2, 5, 0);
+//        world.setTile(Tile.test2, 6, 0);
+//
+//        world.setTile(Tile.test2, 7, 0);
+//
+//        world.setTile(Tile.test2, 7, 1);
+//
+//        world.setTile(Tile.test2, 7, 2);
         double frameCap = 1.0 / 60.0;   //60 frames per second
         double frameTime = 0;
         int frames = 0;
@@ -93,18 +109,8 @@ public class Main {
                     glfwSetWindowShouldClose(window.getWindow(), true);
                 }
 
-                if (window.getInput().isKeyDown(GLFW_KEY_A)) {
-                    camera.getPosition().sub(new Vector3f(5, 0, 0));
-                }
-                if (window.getInput().isKeyDown(GLFW_KEY_D)) {
-                    camera.getPosition().sub(new Vector3f(-5, 0, 0));
-                }
-                if (window.getInput().isKeyDown(GLFW_KEY_W)) {
-                    camera.getPosition().sub(new Vector3f(0, -5, 0));
-                }
-                if (window.getInput().isKeyDown(GLFW_KEY_S)) {
-                    camera.getPosition().sub(new Vector3f(0, 5, 0));
-                }
+                player.update((float) frameCap, window, camera, world);
+
                 world.correctCamera(camera, window);
                 window.update();
                 if (frameTime >= 1.0) {
@@ -132,6 +138,7 @@ public class Main {
 //                    }
 //                }
                 world.render(tiles, shader, camera, window);
+                player.render(shader, camera);
                 window.swapBuffers();
                 frames++;
             }
@@ -142,22 +149,6 @@ public class Main {
 
     }
 
-
-   /* private static long createWindow() {
-
-        int windowWidth = WINDOW_WIDTH;
-        int windowHeight = WINDOW_HEIGHT;
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-
-        long window = glfwCreateWindow(windowWidth, windowHeight, "Cheap Shoot'em up", 0, 0);
-
-        if (window == 0) {
-            throw new RuntimeException("Cannot create window!");
-        }
-        GLFWVidMode vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-        glfwSetWindowPos(window, (vidMode.width() - windowWidth) / 2, (vidMode.height() - windowHeight) / 2);
-        return window;
-    }*/
 }
 
 

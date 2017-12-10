@@ -1,5 +1,5 @@
 /*
- * (C) Copyright 2015 Kai Burjack
+ * (C) Copyright 2015-2016 Kai Burjack
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@ package org.joml;
  * <p>
  * To obtain the origin of the rays call {@link #origin(Vector3f)}.
  * Then to compute the directions of subsequent rays use {@link #dir(float, float, Vector3f)}.
- *
+ * 
  * @author Kai Burjack
  */
 public class FrustumRayBuilder {
@@ -50,8 +50,9 @@ public class FrustumRayBuilder {
 
     /**
      * Create a new {@link FrustumRayBuilder} from the given {@link Matrix4f matrix} by extracing the matrix's frustum.
-     *
-     * @param m the {@link Matrix4f} to create the frustum from
+     * 
+     * @param m
+     *          the {@link Matrix4f} to create the frustum from
      */
     public FrustumRayBuilder(Matrix4f m) {
         set(m);
@@ -64,15 +65,16 @@ public class FrustumRayBuilder {
      * Fast Extraction of Viewing Frustum Planes from the World-View-Projection Matrix</a>
      * <p>
      * Reference: <a href="http://geomalgorithms.com/a05-_intersect-1.html">http://geomalgorithms.com</a>
-     *
-     * @param m the {@link Matrix4f matrix} to update the frustum corner rays and origin with
+     * 
+     * @param m
+     *          the {@link Matrix4f matrix} to update the frustum corner rays and origin with
      * @return this
      */
     public FrustumRayBuilder set(Matrix4f m) {
-        float nxX = m.m03 + m.m00, nxY = m.m13 + m.m10, nxZ = m.m23 + m.m20, d1 = m.m33 + m.m30;
-        float pxX = m.m03 - m.m00, pxY = m.m13 - m.m10, pxZ = m.m23 - m.m20, d2 = m.m33 - m.m30;
-        float nyX = m.m03 + m.m01, nyY = m.m13 + m.m11, nyZ = m.m23 + m.m21;
-        float pyX = m.m03 - m.m01, pyY = m.m13 - m.m11, pyZ = m.m23 - m.m21, d3 = m.m33 - m.m31;
+        float nxX = m.m03() + m.m00(), nxY = m.m13() + m.m10(), nxZ = m.m23() + m.m20(), d1 = m.m33() + m.m30();
+        float pxX = m.m03() - m.m00(), pxY = m.m13() - m.m10(), pxZ = m.m23() - m.m20(), d2 = m.m33() - m.m30();
+        float nyX = m.m03() + m.m01(), nyY = m.m13() + m.m11(), nyZ = m.m23() + m.m21();
+        float pyX = m.m03() - m.m01(), pyY = m.m13() - m.m11(), pyZ = m.m23() - m.m21(), d3 = m.m33() - m.m31();
         // bottom left
         nxnyX = nyY * nxZ - nyZ * nxY;
         nxnyY = nyZ * nxX - nyX * nxZ;
@@ -103,8 +105,9 @@ public class FrustumRayBuilder {
 
     /**
      * Store the eye/origin of the perspective frustum in the given <code>origin</code>.
-     *
-     * @param origin will hold the perspective origin
+     * 
+     * @param origin
+     *          will hold the perspective origin
      * @return the <code>origin</code> vector
      */
     public Vector3f origin(Vector3f origin) {
@@ -115,15 +118,18 @@ public class FrustumRayBuilder {
     }
 
     /**
-     * Obtain the normalized direction of a ray starting at the center of the coordinate system and going
+     * Obtain the normalized direction of a ray starting at the center of the coordinate system and going 
      * through the near frustum plane.
      * <p>
      * The parameters <code>x</code> and <code>y</code> are used to interpolate the generated ray direction
      * from the bottom-left to the top-right frustum corners.
-     *
-     * @param x   the interpolation factor along the left-to-right frustum planes, within <tt>[0..1]</tt>
-     * @param y   the interpolation factor along the bottom-to-top frustum planes, within <tt>[0..1]</tt>
-     * @param dir will hold the normalized ray direction
+     * 
+     * @param x
+     *          the interpolation factor along the left-to-right frustum planes, within <tt>[0..1]</tt>
+     * @param y
+     *          the interpolation factor along the bottom-to-top frustum planes, within <tt>[0..1]</tt>
+     * @param dir
+     *          will hold the normalized ray direction
      * @return the <code>dir</code> vector
      */
     public Vector3f dir(float x, float y, Vector3f dir) {
