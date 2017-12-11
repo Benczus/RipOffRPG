@@ -77,8 +77,8 @@ public class Main {
 //                .scale(16);
 //
 //        Matrix4f target = new Matrix4f();
-       // World world = new World("test_level");
-        World world = new World("test_level");
+      //  World world = new World();
+        World world = new World("test_level", camera);
 
 
 

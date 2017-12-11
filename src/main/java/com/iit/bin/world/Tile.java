@@ -1,43 +1,33 @@
 package com.iit.bin.world;
 
 public class Tile {
-    public static byte tilenumber = 0
-            ;
+   public static final Tile test2 = new Tile("stone").setSolid();
     public static Tile tiles[] = new Tile[255];
   public static final Tile test_tile = new Tile("grass");
-   public static final Tile test2 = new Tile("star").setSolid();
-
+    public static byte tilenumber = 0;
 
 
     private byte id;
     private String texture;
-    private boolean solid;
+    private boolean isSolid;
 
     public Tile(String texture) {
-
         this.id = tilenumber++;
         this.texture = texture;
-        this.solid = false;
-
-
+        this.isSolid = false;
         if (tiles[id] != null) {
-            throw new IllegalStateException("Tiles at :" + id + " is already being used!");
-
+            throw new IllegalStateException(id + " is already being used!");
         }
-
-
         tiles[id] = this;
-
-
     }
 
     public Tile setSolid() {
-        this.solid = true;
+        this.isSolid = true;
         return this;
     }
 
     public boolean isSolid() {
-        return solid;
+        return isSolid;
     }
 
     public byte getId() {

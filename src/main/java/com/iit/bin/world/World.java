@@ -38,40 +38,33 @@ public class World {
       .scale(scale)
         ;
         boundingBoxes = new AABB[width * height];
-
-
     }
 
-    public World(String world){
+    public World(String world, Camera camera){
         try {
             System.out.println("levels/"+world+"_tiles.png");
-
-            // BufferedImage tileSheet= ImageIO.read(new File("C:\\Munka\\CheapShootemUp-master\\src\\main\\resources\\levels\\"+world+"_tiles.png"));
-            BufferedImage tileSheet = ImageIO.read(getClass().getResource("/levels/" + world + "_tiles.png"));
-
-            //       BufferedImage entitySheet= ImageIO.read(new File("./levels/"+world+"_entities.png"));
+            BufferedImage tileSheet = ImageIO.read(getClass().getResource("/levels/" + world + "/tiles.png"));
+                   BufferedImage entitySheet= ImageIO.read(getClass().getResource("/levels/" + world + "/entities.png"));;
             scale=16;
-
             width=tileSheet.getWidth();
             height= tileSheet.getHeight();
-
-
-            this.world = new Matrix4f().setTranslation(new Vector3f(0))
-                    .scale(scale)
-            ;
+            this.world = new Matrix4f().setTranslation(new Vector3f(0)).scale(scale);
             int [] colorTileSheet =  tileSheet.getRGB(0,0,width, height,null, 0, width);
+            int [] colorEntitySheet= entitySheet.getRGB(0,0,width,height,null,0,width);
+
 
             tiles= new byte[width*height];
             boundingBoxes= new AABB[width*height];
-
             entityList= new ArrayList<Entity>();
 
+            Transform transform;
 
 
             for (int y = 0; y <height ; y++) {
                 for (int x = 0; x <width ; x++) {
                     int red= (colorTileSheet[x+y*width] >>16) & 0xFF;
-
+                    int entityIndex=(colorEntitySheet[x+y*width]>>16)& 0xFF;
+                    int entity_alpha=(colorEntitySheet[x+y*width]>>24)& 0xFF;
                    Tile t;
                    try {
                        t = Tile.tiles[red];
@@ -82,15 +75,31 @@ public class World {
                    if (t!=null){
                        setTile(t,x,y);
                    }
+                   if (entity_alpha>0){
+                       transform= new Transform();
+                       transform.pos.x=x;
+                       transform.pos.y=-y;
+                       switch (entityIndex){
+                           case 1: // player
+                                Player player= new Player(transform);
+                                entityList.add(player);
+                               camera.getPosition().set(transform.pos.mul(-scale, new Vector3f()));
+                               break;
+                               default:
 
+                                   break;
+
+                       }
+                   }
                 }
             }
-            entityList.add(new Player(new Transform()));
+           // entityList.add(new Player(new Transform()));
 
             Transform t= new Transform();
             t.pos.x=0;
             t.pos.y=-4;
 
+            //CREATING NEW ENTITIES
 //            entityList.add(new Entity(new Animation(1,1,"an"),t){
 //                @Override
 //                public void update(float delta, Window window, Camera camera, World world) {
@@ -144,13 +153,10 @@ public class World {
     }
 
     public void update(float delta, Window window, Camera camera){
-
         for (Entity entity: entityList
              ) {
             entity.update(delta,window,camera,this);
         }
-
-
         for (int i=0; i<entityList.size();i++){
             entityList.get(i).collideWithTiles(this);
             for (int j = i+1; j < entityList.size(); j++) {
@@ -186,7 +192,6 @@ public class World {
         if (tile.isSolid()){
             boundingBoxes[x + y * width] = new AABB(new Vector2f(x * 2, -y * 2), new Vector2f(1, 1));
         }
-
         else boundingBoxes[x + y * width] = null;
     }
 

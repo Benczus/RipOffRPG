@@ -18,17 +18,12 @@ public abstract class Entity {
    protected Transform transform;
    protected AABB boundingBox;
    protected int useAnimation;
-    //  private Texture animations;
     private Animation[] animations;
-
 
     public Entity(int maxAnimationCount, Transform transform) {
         this.animations = new Animation[maxAnimationCount];
         this.transform=transform;
         this.useAnimation=0;
-
-        // this.animations= new Texture("test.png");
-        //  this.animations = new Animation(5, 15, "an");
         transform = new Transform();
 
         boundingBox = new AABB(new Vector2f(transform.pos.x, transform.pos.y), new Vector2f(transform.scale.x, transform.scale.y));

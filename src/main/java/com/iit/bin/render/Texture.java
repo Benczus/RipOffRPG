@@ -16,7 +16,7 @@ public class Texture {
     private int height;
     private int width;
 
-
+    // black magic
     public Texture(String filename) {
         BufferedImage bufferedImage;
         try {

@@ -20,13 +20,11 @@ public class Animation {
         for (int i = 0; i < amount; i++) {
             this.frames[i] = new Texture( filename + "/" + i + ".png");
         }
-
     }
 
     public void bind(int sampler) {
         this.currentTime = Timer.getTime();
         this.elapsedTime += currentTime - lastTime;
-
         if (elapsedTime >= fps) {
             elapsedTime = 0;
             pointer++;
