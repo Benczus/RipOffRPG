@@ -31,12 +31,15 @@ public class Main {
         }
 
         Window window = new Window();
-        window.setSize(1280, 1024);
+        window.setSize(640, 480);
         window.setFullscreen(false);
         window.createWindow("Game");
 
 
         GL.createCapabilities();
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
         Camera camera = new Camera(window.getWidth(), window.getHeight());
         glEnable(GL_TEXTURE_2D);
 
@@ -77,7 +80,7 @@ public class Main {
        // World world = new World("test_level");
         World world = new World("test_level");
 
-        Player player = new Player(new Transform());
+
 
 //        world.setTile(Tile.test2, 5, 0);
 //        world.setTile(Tile.test2, 6, 0);
@@ -109,7 +112,7 @@ public class Main {
                     glfwSetWindowShouldClose(window.getWindow(), true);
                 }
 
-                player.update((float) frameCap, window, camera, world);
+               world.update((float) frameCap, window, camera);
 
                 world.correctCamera(camera, window);
                 window.update();
@@ -138,7 +141,7 @@ public class Main {
 //                    }
 //                }
                 world.render(tiles, shader, camera, window);
-                player.render(shader, camera, world);
+
                 window.swapBuffers();
                 frames++;
             }

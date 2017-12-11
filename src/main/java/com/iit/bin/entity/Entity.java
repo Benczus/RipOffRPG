@@ -12,20 +12,23 @@ import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
-public class Entity {
+public abstract class Entity {
 
     private static Model model;
-    //  private Texture texture;
-    private Animation texture;
-    private Transform transform;
-    private AABB boundingBox;
+   protected Transform transform;
+   protected AABB boundingBox;
+   protected int useAnimation;
+    //  private Texture animations;
+    private Animation[] animations;
 
-    public Entity(Animation animation, Transform transform) {
-        this.texture= animation;
+
+    public Entity(int maxAnimationCount, Transform transform) {
+        this.animations = new Animation[maxAnimationCount];
         this.transform=transform;
+        this.useAnimation=0;
 
-        // this.texture= new Texture("test.png");
-        //  this.texture = new Animation(5, 15, "an");
+        // this.animations= new Texture("test.png");
+        //  this.animations = new Animation(5, 15, "an");
         transform = new Transform();
 
         boundingBox = new AABB(new Vector2f(transform.pos.x, transform.pos.y), new Vector2f(transform.scale.x, transform.scale.y));
@@ -65,9 +68,7 @@ public static void deleteAsset(){
         boundingBox.getCenter().set(transform.pos.x, transform.pos.y);
     }
 
-    public void update(float delta, Window window, Camera camera, World world) {
-
-
+    public void collideWithTiles(World world){
         AABB[] boxes = new AABB[25];
 
         for (int i = 0; i < 5; i++) {
@@ -116,10 +117,16 @@ public static void deleteAsset(){
                 transform.pos.set(boundingBox.getCenter(), 0);
             }
         }
-        camera.getPosition().lerp(transform.pos.mul(-world.getScale(), new Vector3f()), 0.05f);
-        camera.setPosition(transform.pos.mul(-world.getScale(), new Vector3f()));
-
     }
+
+    protected void setAnimation(int index, Animation animation){
+        animations[index]= animation;
+    }
+    public void useAnimation(int index){
+        this.useAnimation=index;
+    }
+
+      public abstract void  update(float delta, Window window, Camera camera, World world);
 
     public void render(Shader shader, Camera camera, World world) {
         Matrix4f target= camera.getProjection();
@@ -129,8 +136,21 @@ public static void deleteAsset(){
         shader.bind();
         shader.setUniform("sampler", 0);
         shader.setUniform("projection", transform.getProjection(target));
-        texture.bind(0);
+        animations[useAnimation].bind(0);
         model.render();
     }
 
+    public void collideWithEntity(Entity entity) {
+        Collision collision= boundingBox.getCollision(entity.boundingBox);
+        if (collision.isIntersecting){
+            collision.distance.x/=2;
+            collision.distance.y/=2;
+            boundingBox.correctPosition(entity.boundingBox, collision);
+            transform.pos.set(boundingBox.getCenter().x, boundingBox.getCenter().y, 0);
+
+
+            entity.boundingBox.correctPosition(this.boundingBox, collision);
+            entity.transform.pos.set(entity.boundingBox.getCenter().x, entity.boundingBox.getCenter().y, 0);
+        }
+    }
 }

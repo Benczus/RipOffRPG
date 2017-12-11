@@ -20,7 +20,7 @@ public class Texture {
     public Texture(String filename) {
         BufferedImage bufferedImage;
         try {
-            //    System.out.println("textures/" + filename);
+               System.out.println("textures/" + filename);
             bufferedImage = ImageIO.read(getClass().getResource("/textures/" + filename));  // NEM MŰKÖDIK A RELATÍV ELÉRÉS. MIÉRT???!
             width = bufferedImage.getWidth();
             height = bufferedImage.getHeight();

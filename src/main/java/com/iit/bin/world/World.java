@@ -1,7 +1,11 @@
 package com.iit.bin.world;
 
 import com.iit.bin.collision.AABB;
+import com.iit.bin.entity.Entity;
+import com.iit.bin.entity.Player;
+import com.iit.bin.entity.Transform;
 import com.iit.bin.io.Window;
+import com.iit.bin.render.Animation;
 import com.iit.bin.render.Camera;
 import com.iit.bin.render.Shader;
 import org.joml.Matrix4f;
@@ -11,6 +15,8 @@ import org.joml.Vector3f;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class World {
@@ -21,6 +27,7 @@ public class World {
     private int scale;
     private Matrix4f world;
     private AABB[] boundingBoxes;
+    private List<Entity> entityList;
 
     public World() {
         width = 64;
@@ -57,6 +64,10 @@ public class World {
             tiles= new byte[width*height];
             boundingBoxes= new AABB[width*height];
 
+            entityList= new ArrayList<Entity>();
+
+
+
             for (int y = 0; y <height ; y++) {
                 for (int x = 0; x <width ; x++) {
                     int red= (colorTileSheet[x+y*width] >>16) & 0xFF;
@@ -74,6 +85,18 @@ public class World {
 
                 }
             }
+            entityList.add(new Player(new Transform()));
+
+            Transform t= new Transform();
+            t.pos.x=0;
+            t.pos.y=-4;
+
+//            entityList.add(new Entity(new Animation(1,1,"an"),t){
+//                @Override
+//                public void update(float delta, Window window, Camera camera, World world) {
+//                    move(new Vector2f(5*delta,0));
+//                }
+//            });
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,6 +136,28 @@ public class World {
 
         }
 
+        for (Entity entity: entityList
+             ) {
+            entity.render(shader,cam,this);
+        }
+
+    }
+
+    public void update(float delta, Window window, Camera camera){
+
+        for (Entity entity: entityList
+             ) {
+            entity.update(delta,window,camera,this);
+        }
+
+
+        for (int i=0; i<entityList.size();i++){
+            entityList.get(i).collideWithTiles(this);
+            for (int j = i+1; j < entityList.size(); j++) {
+                entityList.get(i).collideWithEntity(entityList.get(j));
+            }
+            entityList.get(i).collideWithTiles(this);
+        }
     }
 
 
