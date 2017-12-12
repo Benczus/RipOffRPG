@@ -1,4 +1,4 @@
-package com.iit.bin.io;
+package com.iit.bin.util;
 
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;

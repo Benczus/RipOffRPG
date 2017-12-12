@@ -62,7 +62,7 @@ public class Vector3i implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector3i} and initialize all three components with
+     * Create a new {@link Vector3i} and initializeEntity all three components with
      * the given value.
      *
      * @param d

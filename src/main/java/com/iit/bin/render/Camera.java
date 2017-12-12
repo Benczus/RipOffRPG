@@ -24,7 +24,6 @@ public class Camera {
         this.position.add(position);
     }
 
-
     public Matrix4f getProjection() {
         return projection.translate(position, new Matrix4f());
     }

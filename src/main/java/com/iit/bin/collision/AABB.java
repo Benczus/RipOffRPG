@@ -15,19 +15,11 @@ public class AABB {
         return center;
     }
 
-    public Vector2f getHalfExtent() {
-        return halfExtent;
-    }
-
-    public Collision getCollision(AABB box2) {
+    public Collision collides(AABB box2) {
         Vector2f distance = box2.center.sub(center, new Vector2f());
-
         distance.x = Math.abs(distance.x);
         distance.y = Math.abs(distance.y);
-
         distance.sub(halfExtent.add(box2.halfExtent, new Vector2f()));
-
-
         return new Collision(distance, distance.x < 0 && distance.y < 0);
     }
 

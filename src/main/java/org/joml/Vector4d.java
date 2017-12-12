@@ -1133,12 +1133,12 @@ public class Vector4d implements Externalizable {
     }
 
     /**
-     * Transform this vector by the given quaternion <code>quat</code> and store the result in <code>this</code>.
+     * CharacterPosTrans this vector by the given quaternion <code>quat</code> and store the result in <code>this</code>.
      * 
      * @see Quaterniond#transform(Vector4d)
      * 
      * @param quat
-     *          the quaternion to transform this vector
+     *          the quaternion to characterPosTrans this vector
      * @return this
      */
     public Vector4d rotate(Quaterniond quat) {
@@ -1146,12 +1146,12 @@ public class Vector4d implements Externalizable {
     }
 
     /**
-     * Transform this vector by the given quaternion <code>quat</code> and store the result in <code>dest</code>.
+     * CharacterPosTrans this vector by the given quaternion <code>quat</code> and store the result in <code>dest</code>.
      * 
      * @see Quaterniond#transform(Vector4d)
      * 
      * @param quat
-     *          the quaternion to transform this vector
+     *          the quaternion to characterPosTrans this vector
      * @param dest
      *          will hold the result
      * @return dest

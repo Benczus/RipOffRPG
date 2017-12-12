@@ -47,7 +47,7 @@ public class RayAabIntersection {
      * <p>
      * Before using the {@link #test(float, float, float, float, float, float) intersect()} method,
      * the method {@link #set(float, float, float, float, float, float) set()} must be called in order to
-     * initialize the created RayAabIntersection instance with a ray.
+     * initializeEntity the created RayAabIntersection instance with a ray.
      *
      * @see #set(float, float, float, float, float, float)
      */
@@ -55,7 +55,7 @@ public class RayAabIntersection {
     }
 
     /**
-     * Create a new {@link RayAabIntersection} and initialize it with a ray with origin <tt>(originX, originY, originZ)</tt>
+     * Create a new {@link RayAabIntersection} and initializeEntity it with a ray with origin <tt>(originX, originY, originZ)</tt>
      * and direction <tt>(dirX, dirY, dirZ)</tt>.
      * <p>
      * In order to change the direction and/or origin of the ray later, use {@link #set(float, float, float, float, float, float) set()}.

@@ -33,7 +33,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
- * Contains the definition of a 4x4 matrix of floats, and associated functions to transform
+ * Contains the definition of a 4x4 matrix of floats, and associated functions to characterPosTrans
  * it. The matrix is column-major to match OpenGL's interpretation, and it looks like this:
  * <p>
  *      m00  m10  m20  m30<br>
@@ -4495,12 +4495,12 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix and store the result in that vector.
+     * CharacterPosTrans/multiply the given vector by this matrix and store the result in that vector.
      * 
      * @see Vector4f#mul(Matrix4f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector4f transform(Vector4f v) {
@@ -4508,12 +4508,12 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix and store the result in <code>dest</code>.
+     * CharacterPosTrans/multiply the given vector by this matrix and store the result in <code>dest</code>.
      * 
      * @see Vector4f#mul(Matrix4f, Vector4f)
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will contain the result
      * @return dest
@@ -4523,16 +4523,16 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the vector <tt>(x, y, z, w)</tt> by this matrix and store the result in <code>dest</code>.
+     * CharacterPosTrans/multiply the vector <tt>(x, y, z, w)</tt> by this matrix and store the result in <code>dest</code>.
      * 
      * @param x
-     *          the x coordinate of the vector to transform
+     *          the x coordinate of the vector to characterPosTrans
      * @param y
-     *          the y coordinate of the vector to transform
+     *          the y coordinate of the vector to characterPosTrans
      * @param z
-     *          the z coordinate of the vector to transform
+     *          the z coordinate of the vector to characterPosTrans
      * @param w
-     *          the w coordinate of the vector to transform
+     *          the w coordinate of the vector to characterPosTrans
      * @param dest
      *          will contain the result
      * @return dest
@@ -4546,12 +4546,12 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix, perform perspective divide and store the result in that vector.
+     * CharacterPosTrans/multiply the given vector by this matrix, perform perspective divide and store the result in that vector.
      * 
      * @see Vector4f#mulProject(Matrix4f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector4f transformProject(Vector4f v) {
@@ -4559,12 +4559,12 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix, perform perspective divide and store the result in <code>dest</code>.
+     * CharacterPosTrans/multiply the given vector by this matrix, perform perspective divide and store the result in <code>dest</code>.
      * 
      * @see Vector4f#mulProject(Matrix4f, Vector4f)
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will contain the result
      * @return dest
@@ -4574,16 +4574,16 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the vector <tt>(x, y, z, w)</tt> by this matrix, perform perspective divide and store the result in <code>dest</code>.
+     * CharacterPosTrans/multiply the vector <tt>(x, y, z, w)</tt> by this matrix, perform perspective divide and store the result in <code>dest</code>.
      * 
      * @param x
-     *          the x coordinate of the vector to transform
+     *          the x coordinate of the vector to characterPosTrans
      * @param y
-     *          the y coordinate of the vector to transform
+     *          the y coordinate of the vector to characterPosTrans
      * @param z
-     *          the z coordinate of the vector to transform
+     *          the z coordinate of the vector to characterPosTrans
      * @param w
-     *          the w coordinate of the vector to transform
+     *          the w coordinate of the vector to characterPosTrans
      * @param dest
      *          will contain the result
      * @return dest
@@ -4598,14 +4598,14 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix, perform perspective divide and store the result in that vector.
+     * CharacterPosTrans/multiply the given vector by this matrix, perform perspective divide and store the result in that vector.
      * <p>
      * This method uses <tt>w=1.0</tt> as the fourth vector component.
      * 
      * @see Vector3f#mulProject(Matrix4f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector3f transformProject(Vector3f v) {
@@ -4613,14 +4613,14 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix, perform perspective divide and store the result in <code>dest</code>.
+     * CharacterPosTrans/multiply the given vector by this matrix, perform perspective divide and store the result in <code>dest</code>.
      * <p>
      * This method uses <tt>w=1.0</tt> as the fourth vector component.
      * 
      * @see Vector3f#mulProject(Matrix4f, Vector3f)
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will contain the result
      * @return dest
@@ -4630,16 +4630,16 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the vector <tt>(x, y, z)</tt> by this matrix, perform perspective divide and store the result in <code>dest</code>.
+     * CharacterPosTrans/multiply the vector <tt>(x, y, z)</tt> by this matrix, perform perspective divide and store the result in <code>dest</code>.
      * <p>
      * This method uses <tt>w=1.0</tt> as the fourth vector component.
      * 
      * @param x
-     *          the x coordinate of the vector to transform
+     *          the x coordinate of the vector to characterPosTrans
      * @param y
-     *          the y coordinate of the vector to transform
+     *          the y coordinate of the vector to characterPosTrans
      * @param z
-     *          the z coordinate of the vector to transform
+     *          the z coordinate of the vector to characterPosTrans
      * @param dest
      *          will contain the result
      * @return dest
@@ -4653,7 +4653,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
      * this matrix and store the result in that vector.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being 1.0, so it
@@ -4670,7 +4670,7 @@ public class Matrix4f implements Externalizable {
      * @see #transformProject(Vector3f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector3f transformPosition(Vector3f v) {
@@ -4681,7 +4681,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
      * this matrix and store the result in <code>dest</code>.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being 1.0, so it
@@ -4698,7 +4698,7 @@ public class Matrix4f implements Externalizable {
      * @see #transformProject(Vector3f, Vector3f)
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -4708,7 +4708,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the 3D-vector <tt>(x, y, z)</tt>, as if it was a 4D-vector with w=1, by
+     * CharacterPosTrans/multiply the 3D-vector <tt>(x, y, z)</tt>, as if it was a 4D-vector with w=1, by
      * this matrix and store the result in <code>dest</code>.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being 1.0, so it
@@ -4739,7 +4739,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
      * this matrix and store the result in that vector.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being <tt>0.0</tt>, so it
@@ -4751,7 +4751,7 @@ public class Matrix4f implements Externalizable {
      * @see #transformDirection(Vector3f, Vector3f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector3f transformDirection(Vector3f v) {
@@ -4762,7 +4762,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
      * this matrix and store the result in <code>dest</code>.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being <tt>0.0</tt>, so it
@@ -4774,7 +4774,7 @@ public class Matrix4f implements Externalizable {
      * @see #transformDirection(Vector3f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @param dest
      *          will hold the result
      * @return dest
@@ -4784,7 +4784,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector <tt>(x, y, z)</tt>, as if it was a 4D-vector with w=0, by
+     * CharacterPosTrans/multiply the given 3D-vector <tt>(x, y, z)</tt>, as if it was a 4D-vector with w=0, by
      * this matrix and store the result in <code>dest</code>.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being <tt>0.0</tt>, so it
@@ -4792,11 +4792,11 @@ public class Matrix4f implements Externalizable {
      * not take the translation part of the matrix into account.
      * 
      * @param x
-     *          the x coordinate of the direction to transform
+     *          the x coordinate of the direction to characterPosTrans
      * @param y
-     *          the y coordinate of the direction to transform
+     *          the y coordinate of the direction to characterPosTrans
      * @param z
-     *          the z coordinate of the direction to transform
+     *          the z coordinate of the direction to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -4809,7 +4809,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 4D-vector by assuming that <code>this</code> matrix represents an {@link #isAffine() affine} transformation
+     * CharacterPosTrans/multiply the given 4D-vector by assuming that <code>this</code> matrix represents an {@link #isAffine() affine} transformation
      * (i.e. its last row is equal to <tt>(0, 0, 0, 1)</tt>).
      * <p>
      * In order to store the result in another vector, use {@link #transformAffine(Vector4f, Vector4f)}.
@@ -4817,7 +4817,7 @@ public class Matrix4f implements Externalizable {
      * @see #transformAffine(Vector4f, Vector4f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector4f transformAffine(Vector4f v) {
@@ -4829,7 +4829,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 4D-vector by assuming that <code>this</code> matrix represents an {@link #isAffine() affine} transformation
+     * CharacterPosTrans/multiply the given 4D-vector by assuming that <code>this</code> matrix represents an {@link #isAffine() affine} transformation
      * (i.e. its last row is equal to <tt>(0, 0, 0, 1)</tt>) and store the result in <code>dest</code>.
      * <p>
      * In order to store the result in the same vector, use {@link #transformAffine(Vector4f)}.
@@ -4837,7 +4837,7 @@ public class Matrix4f implements Externalizable {
      * @see #transformAffine(Vector4f)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @param dest
      *          will hold the result
      * @return dest
@@ -4847,17 +4847,17 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform/multiply the 4D-vector <tt>(x, y, z, w)</tt> by assuming that <code>this</code> matrix represents an {@link #isAffine() affine} transformation
+     * CharacterPosTrans/multiply the 4D-vector <tt>(x, y, z, w)</tt> by assuming that <code>this</code> matrix represents an {@link #isAffine() affine} transformation
      * (i.e. its last row is equal to <tt>(0, 0, 0, 1)</tt>) and store the result in <code>dest</code>.
      * 
      * @param x
-     *          the x coordinate of the direction to transform
+     *          the x coordinate of the direction to characterPosTrans
      * @param y
-     *          the y coordinate of the direction to transform
+     *          the y coordinate of the direction to characterPosTrans
      * @param z
-     *          the z coordinate of the direction to transform
+     *          the z coordinate of the direction to characterPosTrans
      * @param w
-     *          the w coordinate of the direction to transform
+     *          the w coordinate of the direction to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -11822,7 +11822,7 @@ public class Matrix4f implements Externalizable {
      * if the point is within the frustum (i.e. at the <i>positive</i> side of the frustum plane).
      * <p>
      * Reference: <a href="http://gamedevs.org/uploads/fast-extraction-viewing-frustum-planes-from-world-view-projection-matrix.pdf">
-     * Fast Extraction of Viewing Frustum Planes from the World-View-Projection Matrix</a>
+     * Fast Extraction of Viewing Frustum Planes from the MapRenderer-View-Projection Matrix</a>
      *
      * @param plane
      *          one of the six possible planes, given as numeric constants
@@ -11872,7 +11872,7 @@ public class Matrix4f implements Externalizable {
      * Reference: <a href="http://geomalgorithms.com/a05-_intersect-1.html">http://geomalgorithms.com</a>
      * <p>
      * Reference: <a href="http://gamedevs.org/uploads/fast-extraction-viewing-frustum-planes-from-world-view-projection-matrix.pdf">
-     * Fast Extraction of Viewing Frustum Planes from the World-View-Projection Matrix</a>
+     * Fast Extraction of Viewing Frustum Planes from the MapRenderer-View-Projection Matrix</a>
      * 
      * @param corner
      *          one of the eight possible corners, given as numeric constants
@@ -11964,7 +11964,7 @@ public class Matrix4f implements Externalizable {
      * Reference: <a href="http://geomalgorithms.com/a05-_intersect-1.html">http://geomalgorithms.com</a>
      * <p>
      * Reference: <a href="http://gamedevs.org/uploads/fast-extraction-viewing-frustum-planes-from-world-view-projection-matrix.pdf">
-     * Fast Extraction of Viewing Frustum Planes from the World-View-Projection Matrix</a>
+     * Fast Extraction of Viewing Frustum Planes from the MapRenderer-View-Projection Matrix</a>
      * 
      * @param origin
      *          will hold the origin of the coordinate system before applying <code>this</code>
@@ -12009,7 +12009,7 @@ public class Matrix4f implements Externalizable {
      * For orthogonal transformations this method will return <tt>0.0</tt>.
      * <p>
      * Reference: <a href="http://gamedevs.org/uploads/fast-extraction-viewing-frustum-planes-from-world-view-projection-matrix.pdf">
-     * Fast Extraction of Viewing Frustum Planes from the World-View-Projection Matrix</a>
+     * Fast Extraction of Viewing Frustum Planes from the MapRenderer-View-Projection Matrix</a>
      * 
      * @return the vertical field-of-view angle in radians
      */
@@ -12064,7 +12064,7 @@ public class Matrix4f implements Externalizable {
      * and then bilinearly interpolating between them; or to use the {@link FrustumRayBuilder}.
      * <p>
      * Reference: <a href="http://gamedevs.org/uploads/fast-extraction-viewing-frustum-planes-from-world-view-projection-matrix.pdf">
-     * Fast Extraction of Viewing Frustum Planes from the World-View-Projection Matrix</a>
+     * Fast Extraction of Viewing Frustum Planes from the MapRenderer-View-Projection Matrix</a>
      * 
      * @param x
      *          the interpolation factor along the left-to-right frustum planes, within <tt>[0..1]</tt>
@@ -12537,7 +12537,7 @@ public class Matrix4f implements Externalizable {
      * @param light
      *          the light's vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @param dest
      *          will hold the result
      * @return dest
@@ -12567,7 +12567,7 @@ public class Matrix4f implements Externalizable {
      * @param light
      *          the light's vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @return this
      */
     public Matrix4f shadow(Vector4f light, Matrix4f planeTransform) {
@@ -12597,7 +12597,7 @@ public class Matrix4f implements Externalizable {
      * @param lightW
      *          the w-component of the light vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @param dest
      *          will hold the result
      * @return dest
@@ -12633,7 +12633,7 @@ public class Matrix4f implements Externalizable {
      * @param lightW
      *          the w-component of the light vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @return this
      */
     public Matrix4f shadow(float lightX, float lightY, float lightZ, float lightW, Matrix4f planeTransform) {
@@ -13103,7 +13103,7 @@ public class Matrix4f implements Externalizable {
      * coordinates in the given <code>min</code> and the maximum corner coordinates in the given <code>max</code> vector.
      * <p>
      * The matrix <code>this</code> is assumed to be the {@link #invert() inverse} of the origial view-projection matrix
-     * for which to compute the axis-aligned bounding box in world-space.
+     * for which to compute the axis-aligned bounding box in map-space.
      * <p>
      * The axis-aligned bounding box of the unit frustum is <tt>(-1, -1, -1)</tt>, <tt>(1, 1, 1)</tt>.
      * 
@@ -13285,7 +13285,7 @@ public class Matrix4f implements Externalizable {
      * @return dest
      */
     public Matrix4f orthoCrop(Matrix4f view, Matrix4f dest) {
-        // determine min/max world z and min/max orthographically view-projected x/y
+        // determine min/max map z and min/max orthographically view-projected x/y
         float minX = Float.MAX_VALUE, maxX = -Float.MAX_VALUE;
         float minY = Float.MAX_VALUE, maxY = -Float.MAX_VALUE;
         float minZ = Float.MAX_VALUE, maxZ = -Float.MAX_VALUE;
@@ -13378,7 +13378,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform the axis-aligned box given as the minimum corner <tt>(minX, minY, minZ)</tt> and maximum corner <tt>(maxX, maxY, maxZ)</tt>
+     * CharacterPosTrans the axis-aligned box given as the minimum corner <tt>(minX, minY, minZ)</tt> and maximum corner <tt>(maxX, maxY, maxZ)</tt>
      * by <code>this</code> {@link #isAffine() affine} matrix and compute the axis-aligned box of the result whose minimum corner is stored in <code>outMin</code>
      * and maximum corner stored in <code>outMax</code>.
      * <p>
@@ -13484,7 +13484,7 @@ public class Matrix4f implements Externalizable {
     }
 
     /**
-     * Transform the axis-aligned box given as the minimum corner <code>min</code> and maximum corner <code>max</code>
+     * CharacterPosTrans the axis-aligned box given as the minimum corner <code>min</code> and maximum corner <code>max</code>
      * by <code>this</code> {@link #isAffine() affine} matrix and compute the axis-aligned box of the result whose minimum corner is stored in <code>outMin</code>
      * and maximum corner stored in <code>outMax</code>.
      * 

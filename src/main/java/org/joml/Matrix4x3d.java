@@ -33,7 +33,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
- * Contains the definition of an affine 4x3 matrix (4 columns, 3 rows) of doubles, and associated functions to transform
+ * Contains the definition of an affine 4x3 matrix (4 columns, 3 rows) of doubles, and associated functions to characterPosTrans
  * it. The matrix is column-major to match OpenGL's interpretation, and it looks like this:
  * <p>
  *      m00  m10  m20  m30<br>
@@ -2827,12 +2827,12 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix and store the result in that vector.
+     * CharacterPosTrans/multiply the given vector by this matrix and store the result in that vector.
      * 
      * @see Vector4d#mul(Matrix4x3d)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector4d transform(Vector4d v) {
@@ -2840,12 +2840,12 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given vector by this matrix and store the result in <code>dest</code>.
+     * CharacterPosTrans/multiply the given vector by this matrix and store the result in <code>dest</code>.
      * 
      * @see Vector4d#mul(Matrix4x3d, Vector4d)
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will contain the result
      * @return dest
@@ -2855,7 +2855,7 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
      * this matrix and store the result in that vector.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being 1.0, so it
@@ -2867,7 +2867,7 @@ public class Matrix4x3d implements Externalizable {
      * @see #transform(Vector4d)
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector3d transformPosition(Vector3d v) {
@@ -2878,7 +2878,7 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=1, by
      * this matrix and store the result in <code>dest</code>.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being 1.0, so it
@@ -2890,7 +2890,7 @@ public class Matrix4x3d implements Externalizable {
      * @see #transform(Vector4d, Vector4d)
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -2903,7 +2903,7 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
      * this matrix and store the result in that vector.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being <tt>0.0</tt>, so it
@@ -2913,7 +2913,7 @@ public class Matrix4x3d implements Externalizable {
      * In order to store the result in another vector, use {@link #transformDirection(Vector3d, Vector3d)}.
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @return v
      */
     public Vector3d transformDirection(Vector3d v) {
@@ -2924,7 +2924,7 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
+     * CharacterPosTrans/multiply the given 3D-vector, as if it was a 4D-vector with w=0, by
      * this matrix and store the result in <code>dest</code>.
      * <p>
      * The given 3D-vector is treated as a 4D-vector with its w-component being <tt>0.0</tt>, so it
@@ -2934,7 +2934,7 @@ public class Matrix4x3d implements Externalizable {
      * In order to store the result in the same vector, use {@link #transformDirection(Vector3d)}.
      * 
      * @param v
-     *          the vector to transform and to hold the final result
+     *          the vector to characterPosTrans and to hold the final result
      * @param dest
      *          will hold the result
      * @return dest
@@ -8133,7 +8133,7 @@ public class Matrix4x3d implements Externalizable {
      * @param light
      *          the light's vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @param dest
      *          will hold the result
      * @return dest
@@ -8163,7 +8163,7 @@ public class Matrix4x3d implements Externalizable {
      * @param light
      *          the light's vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @return this
      */
     public Matrix4x3d shadow(Vector4d light, Matrix4x3d planeTransform) {
@@ -8193,7 +8193,7 @@ public class Matrix4x3d implements Externalizable {
      * @param lightW
      *          the w-component of the light vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @param dest
      *          will hold the result
      * @return dest
@@ -8229,7 +8229,7 @@ public class Matrix4x3d implements Externalizable {
      * @param lightW
      *          the w-component of the light vector
      * @param planeTransform
-     *          the transformation to transform the implied plane <tt>y = 0</tt> before applying the projection
+     *          the transformation to characterPosTrans the implied plane <tt>y = 0</tt> before applying the projection
      * @return this
      */
     public Matrix4x3d shadow(double lightX, double lightY, double lightZ, double lightW, Matrix4x3d planeTransform) {
@@ -8675,7 +8675,7 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform the axis-aligned box given as the minimum corner <tt>(minX, minY, minZ)</tt> and maximum corner <tt>(maxX, maxY, maxZ)</tt>
+     * CharacterPosTrans the axis-aligned box given as the minimum corner <tt>(minX, minY, minZ)</tt> and maximum corner <tt>(maxX, maxY, maxZ)</tt>
      * by <code>this</code> matrix and compute the axis-aligned box of the result whose minimum corner is stored in <code>outMin</code>
      * and maximum corner stored in <code>outMax</code>.
      * <p>
@@ -8781,7 +8781,7 @@ public class Matrix4x3d implements Externalizable {
     }
 
     /**
-     * Transform the axis-aligned box given as the minimum corner <code>min</code> and maximum corner <code>max</code>
+     * CharacterPosTrans the axis-aligned box given as the minimum corner <code>min</code> and maximum corner <code>max</code>
      * by <code>this</code> matrix and compute the axis-aligned box of the result whose minimum corner is stored in <code>outMin</code>
      * and maximum corner stored in <code>outMax</code>.
      * 

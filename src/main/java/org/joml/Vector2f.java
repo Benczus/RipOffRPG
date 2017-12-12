@@ -51,13 +51,13 @@ public class Vector2f implements Externalizable {
     public float y;
 
     /**
-     * Create a new {@link Vector2f} and initialize its components to zero.
+     * Create a new {@link Vector2f} and initializeEntity its components to zero.
      */
     public Vector2f() {
     }
 
     /**
-     * Create a new {@link Vector2f} and initialize both of its components with the given value.
+     * Create a new {@link Vector2f} and initializeEntity both of its components with the given value.
      *
      * @param d
      *        the value of both components
@@ -67,7 +67,7 @@ public class Vector2f implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector2f} and initialize its components to the given values.
+     * Create a new {@link Vector2f} and initializeEntity its components to the given values.
      * 
      * @param x
      *        the x component
@@ -80,7 +80,7 @@ public class Vector2f implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector2f} and initialize its components to the one of the given vector.
+     * Create a new {@link Vector2f} and initializeEntity its components to the one of the given vector.
      * 
      * @param v
      *        the {@link Vector2f} to copy the values from

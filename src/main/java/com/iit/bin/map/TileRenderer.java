@@ -1,4 +1,4 @@
-package com.iit.bin.world;
+package com.iit.bin.map;
 
 import com.iit.bin.render.Camera;
 import com.iit.bin.render.Model;
@@ -43,6 +43,7 @@ public class TileRenderer {
             if (Tile.tiles[i] != null) {
                 if (!tile_textures.containsKey(Tile.tiles[i].getTexture())) {
                     String tex = Tile.tiles[i].getTexture();
+                    System.out.println(tex);
                     tile_textures.put(tex, new Texture(tex+".png"));
                 }
             }

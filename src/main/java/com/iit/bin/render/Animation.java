@@ -1,6 +1,6 @@
 package com.iit.bin.render;
 
-import com.iit.bin.io.Timer;
+import com.iit.bin.util.Timer;
 
 public class Animation {
     private Texture[] frames;

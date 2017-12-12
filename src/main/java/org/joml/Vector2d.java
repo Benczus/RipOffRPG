@@ -51,13 +51,13 @@ public class Vector2d implements Externalizable {
     public double y;
 
     /**
-     * Create a new {@link Vector2d} and initialize its components to zero.
+     * Create a new {@link Vector2d} and initializeEntity its components to zero.
      */
     public Vector2d() {
     }
 
     /**
-     * Create a new {@link Vector2d} and initialize both of its components with the given value.
+     * Create a new {@link Vector2d} and initializeEntity both of its components with the given value.
      * 
      * @param d    
      *          the value of both components
@@ -67,7 +67,7 @@ public class Vector2d implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector2d} and initialize its components to the given values.
+     * Create a new {@link Vector2d} and initializeEntity its components to the given values.
      * 
      * @param x
      *          the x value
@@ -80,7 +80,7 @@ public class Vector2d implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector2d} and initialize its components to the one of the given vector.
+     * Create a new {@link Vector2d} and initializeEntity its components to the one of the given vector.
      * 
      * @param v
      *          the {@link Vector2d} to copy the values from
@@ -91,7 +91,7 @@ public class Vector2d implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector2d} and initialize its components to the one of the given vector.
+     * Create a new {@link Vector2d} and initializeEntity its components to the one of the given vector.
      * 
      * @param v
      *          the {@link Vector2f} to copy the values from

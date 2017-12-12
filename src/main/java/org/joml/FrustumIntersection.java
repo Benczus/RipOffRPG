@@ -154,7 +154,7 @@ public class FrustumIntersection {
      * Update the stored frustum planes of <code>this</code> {@link FrustumIntersection} with the given {@link Matrix4f matrix}.
      * <p>
      * Reference: <a href="http://gamedevs.org/uploads/fast-extraction-viewing-frustum-planes-from-world-view-projection-matrix.pdf">
-     * Fast Extraction of Viewing Frustum Planes from the World-View-Projection Matrix</a>
+     * Fast Extraction of Viewing Frustum Planes from the MapRenderer-View-Projection Matrix</a>
      * 
      * @param m
      *          the {@link Matrix4f matrix} to update <code>this</code> frustum culler's frustum planes from

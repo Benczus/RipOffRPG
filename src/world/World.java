@@ -28,7 +28,7 @@ public class World {
 	public World(String world) {
 		try {
 			BufferedImage tile_sheet = ImageIO.read(new File("./levels/" + world + "_tiles.png"));
-			//BufferedImage entity_sheet = ImageIO.read(new File("./levels/" + world + "_entity.png"));
+			//BufferedImage entity_sheet = ImageIO.read(new File("./levels/" + map + "_entity.png"));
 			
 			width = tile_sheet.getWidth();
 			height = tile_sheet.getHeight();

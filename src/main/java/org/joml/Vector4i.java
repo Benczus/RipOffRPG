@@ -113,7 +113,7 @@ public class Vector4i implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector4i} and initialize all four components with the
+     * Create a new {@link Vector4i} and initializeEntity all four components with the
      * given value.
      *
      * @param s

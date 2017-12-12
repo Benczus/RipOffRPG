@@ -223,7 +223,7 @@ public class TrapezoidOrthoCrop {
     }
 
     /**
-     * Unproject NDC frustum corners to world-space and then project it back with an orthographic projection
+     * Unproject NDC frustum corners to map-space and then project it back with an orthographic projection
      * using the given <code>view</code> matrix.
      */
     private void projectFrustumCorners(Matrix4f view) {

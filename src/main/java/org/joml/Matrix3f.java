@@ -32,7 +32,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
- * Contains the definition of a 3x3 matrix of floats, and associated functions to transform
+ * Contains the definition of a 3x3 matrix of floats, and associated functions to characterPosTrans
  * it. The matrix is column-major to match OpenGL's interpretation, and it looks like this:
  * <p>
  *      m00  m10  m20<br>
@@ -1789,10 +1789,10 @@ public class Matrix3f implements Externalizable {
     }
 
     /**
-     * Transform the given vector by this matrix.
+     * CharacterPosTrans the given vector by this matrix.
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @return v
      */
     public Vector3f transform(Vector3f v) {
@@ -1800,10 +1800,10 @@ public class Matrix3f implements Externalizable {
     }
 
     /**
-     * Transform the given vector by this matrix and store the result in <code>dest</code>.
+     * CharacterPosTrans the given vector by this matrix and store the result in <code>dest</code>.
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -1814,14 +1814,14 @@ public class Matrix3f implements Externalizable {
     }
 
     /**
-     * Transform the vector <tt>(x, y, z)</tt> by this matrix and store the result in <code>dest</code>.
+     * CharacterPosTrans the vector <tt>(x, y, z)</tt> by this matrix and store the result in <code>dest</code>.
      * 
      * @param x
-     *          the x coordinate of the vector to transform
+     *          the x coordinate of the vector to characterPosTrans
      * @param y
-     *          the y coordinate of the vector to transform
+     *          the y coordinate of the vector to characterPosTrans
      * @param z
-     *          the z coordinate of the vector to transform
+     *          the z coordinate of the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -3177,7 +3177,7 @@ public class Matrix3f implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Matrix3f inv = new Matrix3f(this).invert();
-     * inv.transform(dir.set(0, 0, 1)).normalize();
+     * inv.characterPosTrans(dir.set(0, 0, 1)).normalize();
      * </pre>
      * If <code>this</code> is already an orthogonal matrix, then consider using {@link #normalizedPositiveZ(Vector3f)} instead.
      * <p>
@@ -3202,7 +3202,7 @@ public class Matrix3f implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Matrix3f inv = new Matrix3f(this).transpose();
-     * inv.transform(dir.set(0, 0, 1)).normalize();
+     * inv.characterPosTrans(dir.set(0, 0, 1)).normalize();
      * </pre>
      * <p>
      * Reference: <a href="http://www.euclideanspace.com/maths/algebra/matrix/functions/inverse/threeD/">http://www.euclideanspace.com</a>
@@ -3224,7 +3224,7 @@ public class Matrix3f implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Matrix3f inv = new Matrix3f(this).invert();
-     * inv.transform(dir.set(1, 0, 0)).normalize();
+     * inv.characterPosTrans(dir.set(1, 0, 0)).normalize();
      * </pre>
      * If <code>this</code> is already an orthogonal matrix, then consider using {@link #normalizedPositiveX(Vector3f)} instead.
      * <p>
@@ -3249,7 +3249,7 @@ public class Matrix3f implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Matrix3f inv = new Matrix3f(this).transpose();
-     * inv.transform(dir.set(1, 0, 0)).normalize();
+     * inv.characterPosTrans(dir.set(1, 0, 0)).normalize();
      * </pre>
      * <p>
      * Reference: <a href="http://www.euclideanspace.com/maths/algebra/matrix/functions/inverse/threeD/">http://www.euclideanspace.com</a>
@@ -3271,7 +3271,7 @@ public class Matrix3f implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Matrix3f inv = new Matrix3f(this).invert();
-     * inv.transform(dir.set(0, 1, 0)).normalize();
+     * inv.characterPosTrans(dir.set(0, 1, 0)).normalize();
      * </pre>
      * If <code>this</code> is already an orthogonal matrix, then consider using {@link #normalizedPositiveY(Vector3f)} instead.
      * <p>
@@ -3296,7 +3296,7 @@ public class Matrix3f implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Matrix3f inv = new Matrix3f(this).transpose();
-     * inv.transform(dir.set(0, 1, 0)).normalize();
+     * inv.characterPosTrans(dir.set(0, 1, 0)).normalize();
      * </pre>
      * <p>
      * Reference: <a href="http://www.euclideanspace.com/maths/algebra/matrix/functions/inverse/threeD/">http://www.euclideanspace.com</a>

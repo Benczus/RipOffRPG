@@ -58,7 +58,7 @@ public class Quaterniond implements Externalizable {
     public double w;
 
     /**
-     * Create a new {@link Quaterniond} and initialize it with <tt>(x=0, y=0, z=0, w=1)</tt>, 
+     * Create a new {@link Quaterniond} and initializeEntity it with <tt>(x=0, y=0, z=0, w=1)</tt>,
      * where <tt>(x, y, z)</tt> is the vector part of the quaternion and <tt>w</tt> is the real/scalar part.
      */
     public Quaterniond() {
@@ -69,7 +69,7 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Create a new {@link Quaterniond} and initialize its components to the given values.
+     * Create a new {@link Quaterniond} and initializeEntity its components to the given values.
      * 
      * @param x
      *          the first component of the imaginary part
@@ -88,7 +88,7 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Create a new {@link Quaterniond} and initialize its imaginary components to the given values,
+     * Create a new {@link Quaterniond} and initializeEntity its imaginary components to the given values,
      * and its real part to <tt>1.0</tt>.
      * 
      * @param x
@@ -106,7 +106,7 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Create a new {@link Quaterniond} and initialize its components to the same values as the given {@link Quaterniond}.
+     * Create a new {@link Quaterniond} and initializeEntity its components to the same values as the given {@link Quaterniond}.
      * 
      * @param source
      *          the {@link Quaterniond} to take the component values from
@@ -119,7 +119,7 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Create a new {@link Quaterniond} and initialize its components to the same values as the given {@link Quaternionf}.
+     * Create a new {@link Quaterniond} and initializeEntity its components to the same values as the given {@link Quaternionf}.
      * 
      * @param source
      *          the {@link Quaternionf} to take the component values from
@@ -132,10 +132,10 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Create a new {@link Quaterniond} and initialize it to represent the same rotation as the given {@link AxisAngle4f}.
+     * Create a new {@link Quaterniond} and initializeEntity it to represent the same rotation as the given {@link AxisAngle4f}.
      * 
      * @param axisAngle
-     *          the axis-angle to initialize this quaternion with
+     *          the axis-angle to initializeEntity this quaternion with
      */
     public Quaterniond(AxisAngle4f axisAngle) {
         double s = Math.sin(axisAngle.angle * 0.5);
@@ -146,10 +146,10 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Create a new {@link Quaterniond} and initialize it to represent the same rotation as the given {@link AxisAngle4d}.
+     * Create a new {@link Quaterniond} and initializeEntity it to represent the same rotation as the given {@link AxisAngle4d}.
      * 
      * @param axisAngle
-     *          the axis-angle to initialize this quaternion with
+     *          the axis-angle to initializeEntity this quaternion with
      */
     public Quaterniond(AxisAngle4d axisAngle) {
         double s = Math.sin(axisAngle.angle * 0.5);
@@ -1058,11 +1058,11 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Transform the given vector by this quaternion.
+     * CharacterPosTrans the given vector by this quaternion.
      * This will apply the rotation described by this quaternion to the given vector.
      *
      * @param vec
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @return vec
      */
     public Vector3d transform(Vector3d vec){
@@ -1070,13 +1070,13 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Transform the given vector by this quaternion.
+     * CharacterPosTrans the given vector by this quaternion.
      * This will apply the rotation described by this quaternion to the given vector.
      * <p>
      * Only the first three components of the given 4D vector are being used and modified.
      *
      * @param vec
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @return vec
      */
     public Vector4d transform(Vector4d vec){
@@ -1084,11 +1084,11 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Transform the given vector by this quaternion and store the result in <code>dest</code>.
+     * CharacterPosTrans the given vector by this quaternion and store the result in <code>dest</code>.
      * This will apply the rotation described by this quaternion to the given vector.
      *
      * @param vec
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -1098,15 +1098,15 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Transform the given vector <tt>(x, y, z)</tt> by this quaternion and store the result in <code>dest</code>.
+     * CharacterPosTrans the given vector <tt>(x, y, z)</tt> by this quaternion and store the result in <code>dest</code>.
      * This will apply the rotation described by this quaternion to the given vector.
      *
      * @param x
-     *          the x coordinate of the vector to transform
+     *          the x coordinate of the vector to characterPosTrans
      * @param y
-     *          the y coordinate of the vector to transform
+     *          the y coordinate of the vector to characterPosTrans
      * @param z
-     *          the z coordinate of the vector to transform
+     *          the z coordinate of the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -1131,13 +1131,13 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Transform the given vector by this quaternion and store the result in <code>dest</code>.
+     * CharacterPosTrans the given vector by this quaternion and store the result in <code>dest</code>.
      * This will apply the rotation described by this quaternion to the given vector.
      * <p>
      * Only the first three components of the given 4D vector are being used and set on the destination.
      *
      * @param vec
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -1147,15 +1147,15 @@ public class Quaterniond implements Externalizable {
     }
 
     /**
-     * Transform the given vector <tt>(x, y, z)</tt> by this quaternion and store the result in <code>dest</code>.
+     * CharacterPosTrans the given vector <tt>(x, y, z)</tt> by this quaternion and store the result in <code>dest</code>.
      * This will apply the rotation described by this quaternion to the given vector.
      *
      * @param x
-     *          the x coordinate of the vector to transform
+     *          the x coordinate of the vector to characterPosTrans
      * @param y
-     *          the y coordinate of the vector to transform
+     *          the y coordinate of the vector to characterPosTrans
      * @param z
-     *          the z coordinate of the vector to transform
+     *          the z coordinate of the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -3115,7 +3115,7 @@ public class Quaterniond implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Quaternionf inv = new Quaternionf(this).invert();
-     * inv.transform(dir.set(1, 0, 0));
+     * inv.characterPosTrans(dir.set(1, 0, 0));
      * </pre>
      * 
      * @param dir
@@ -3143,7 +3143,7 @@ public class Quaterniond implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Quaternionf inv = new Quaternionf(this).conjugate();
-     * inv.transform(dir.set(1, 0, 0));
+     * inv.characterPosTrans(dir.set(1, 0, 0));
      * </pre>
      * 
      * @param dir
@@ -3165,7 +3165,7 @@ public class Quaterniond implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Quaternionf inv = new Quaternionf(this).invert();
-     * inv.transform(dir.set(0, 1, 0));
+     * inv.characterPosTrans(dir.set(0, 1, 0));
      * </pre>
      * 
      * @param dir
@@ -3194,7 +3194,7 @@ public class Quaterniond implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Quaterniond inv = new Quaterniond(this).conjugate();
-     * inv.transform(dir.set(0, 1, 0));
+     * inv.characterPosTrans(dir.set(0, 1, 0));
      * </pre>
      * 
      * @param dir
@@ -3217,7 +3217,7 @@ public class Quaterniond implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Quaterniond inv = new Quaterniond(this).invert();
-     * inv.transform(dir.set(0, 0, 1));
+     * inv.characterPosTrans(dir.set(0, 0, 1));
      * </pre>
      * 
      * @param dir
@@ -3246,7 +3246,7 @@ public class Quaterniond implements Externalizable {
      * This method is equivalent to the following code:
      * <pre>
      * Quaterniond inv = new Quaterniond(this).conjugate();
-     * inv.transform(dir.set(0, 0, 1));
+     * inv.characterPosTrans(dir.set(0, 0, 1));
      * </pre>
      * 
      * @param dir

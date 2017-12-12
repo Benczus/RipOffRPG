@@ -492,10 +492,10 @@ public class AxisAngle4d implements Externalizable {
     }
 
     /**
-     * Transform the given vector by the rotation transformation described by this {@link AxisAngle4d}.
+     * CharacterPosTrans the given vector by the rotation transformation described by this {@link AxisAngle4d}.
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @return v
      */
     public Vector3d transform(Vector3d v) {
@@ -503,11 +503,11 @@ public class AxisAngle4d implements Externalizable {
     }
 
     /**
-     * Transform the given vector by the rotation transformation described by this {@link AxisAngle4d}
+     * CharacterPosTrans the given vector by the rotation transformation described by this {@link AxisAngle4d}
      * and store the result in <code>dest</code>.
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest
@@ -523,10 +523,10 @@ public class AxisAngle4d implements Externalizable {
     }
 
     /**
-     * Transform the given vector by the rotation transformation described by this {@link AxisAngle4d}.
+     * CharacterPosTrans the given vector by the rotation transformation described by this {@link AxisAngle4d}.
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @return v
      */
     public Vector4d transform(Vector4d v) {
@@ -534,11 +534,11 @@ public class AxisAngle4d implements Externalizable {
     }
 
     /**
-     * Transform the given vector by the rotation transformation described by this {@link AxisAngle4d}
+     * CharacterPosTrans the given vector by the rotation transformation described by this {@link AxisAngle4d}
      * and store the result in <code>dest</code>.
      * 
      * @param v
-     *          the vector to transform
+     *          the vector to characterPosTrans
      * @param dest
      *          will hold the result
      * @return dest

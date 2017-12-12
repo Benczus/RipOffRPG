@@ -892,7 +892,7 @@ public class Intersectiond {
      * @param v2Z
      *              the z coordinate of the third triangle vertex
      * @param epsilon
-     *              a small epsilon when testing spheres that move almost parallel to the triangle
+     *              a small epsilon when testing spheres that moveEntity almost parallel to the triangle
      * @param maxT
      *              the maximum intersection time
      * @param pointAndTime

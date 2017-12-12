@@ -67,7 +67,7 @@ public class Main {
 //		Model model = new Model(vertices, texture, indices);
 		Shader shader = new Shader("shader");
 		
-		World world = new World("test_level");
+		World world = new World("castle");
 		
 		Player player = new Player();
 		

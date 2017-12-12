@@ -1,4 +1,4 @@
-package com.iit.bin.io;
+package com.iit.bin.util;
 
 import static org.lwjgl.glfw.GLFW.*;
 

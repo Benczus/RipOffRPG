@@ -51,13 +51,13 @@ public class Vector2i implements Externalizable {
     public int y;
 
     /**
-     * Create a new {@link Vector2i} and initialize its components to zero.
+     * Create a new {@link Vector2i} and initializeEntity its components to zero.
      */
     public Vector2i() {
     }
 
     /**
-     * Create a new {@link Vector2i} and initialize both of its components with
+     * Create a new {@link Vector2i} and initializeEntity both of its components with
      * the given value.
      *
      * @param s
@@ -69,7 +69,7 @@ public class Vector2i implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector2i} and initialize its components to the given values.
+     * Create a new {@link Vector2i} and initializeEntity its components to the given values.
      *
      * @param x
      *          the x component
@@ -82,7 +82,7 @@ public class Vector2i implements Externalizable {
     }
 
     /**
-     * Create a new {@link Vector2i} and initialize its components to the one of
+     * Create a new {@link Vector2i} and initializeEntity its components to the one of
      * the given vector.
      *
      * @param v
